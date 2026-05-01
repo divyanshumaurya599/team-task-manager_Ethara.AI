@@ -18,15 +18,13 @@ app.use("/api/tasks", require("./routes/taskRoutes"));
 // port
 const PORT = process.env.PORT || 5001;
 
-// DB connect
+// Start server FIRST
+app.listen(PORT, () => {
+  console.log(`Server running on ${PORT} 🚀`);
+});
+
+// Then connect DB (separate)
 mongoose
   .connect(process.env.MONGO_URI)
-  .then(() => {
-    console.log("MongoDB Connected ✅");
-
-    app.listen(PORT, () => {
-      console.log(`Server running on ${PORT} 🚀`);
-    });
-  })
+  .then(() => console.log("MongoDB Connected ✅"))
   .catch((err) => console.log("DB Error:", err));
-  
