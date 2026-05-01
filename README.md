@@ -80,8 +80,8 @@ npm install
 
 Create .env file:
 
-MONGO_URI=your_mongodb_uri
-JWT_SECRET=your_secret
+MONGO_URI=mongodb+srv://divyanshumaurya559_db_user:Divyanshu12345@etharaai.qsewpnv.mongodb.net/taskmanager?retryWrites=true&w=majority
+JWT_SECRET=supersecret123
 PORT=5001
 
 Run backend:
