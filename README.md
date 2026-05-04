@@ -84,6 +84,8 @@ MONGO_URI=mongodb+srv://divyanshumaurya559_db_user:Divyanshu12345@etharaai.qsewp
 JWT_SECRET=supersecret123
 PORT=5001
 
+URL = https://team-task-manageretharaai-production.up.railway.app/
+
 Run backend:
 
 npm run dev
