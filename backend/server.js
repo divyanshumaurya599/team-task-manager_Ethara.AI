@@ -16,7 +16,7 @@ app.use("/api/projects", require("./routes/project"));
 app.use("/api/users", require("./routes/user"));
 app.use("/api/tasks", require("./routes/taskRoutes"));
 
-// ===== FRONTEND SERVE =====
+// ===== FRONTEND SERVE FIX =====
 const frontendPath = path.join(__dirname, "../frontend/dist");
 
 app.use(express.static(frontendPath));
@@ -25,12 +25,14 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(frontendPath, "index.html"));
 });
 
-// ===== DB CONNECT =====
-mongoose.connect(process.env.MONGO_URI)
+// port
+const PORT = process.env.PORT || 5001;
+
+// DB connect
+mongoose
+  .connect(process.env.MONGO_URI)
   .then(() => {
     console.log("MongoDB Connected ✅");
-
-    const PORT = process.env.PORT || 5001;
     app.listen(PORT, () => {
       console.log(`Server running on ${PORT} 🚀`);
     });
